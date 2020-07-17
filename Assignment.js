@@ -6,7 +6,7 @@ function feetToMile(feet){
     return mile
 }
 var result = feetToMile(20000)
-console.log(result)
+console.log(result ," Mile")
 
 //2.woodCalculator
 
@@ -22,22 +22,43 @@ var woodResult = woodCalculator( 1, 1, 1);
 console.log("Wood Required=", woodResult,"Qubic Feet")
 
 
-//4.tinyFriends
-var friendsName = [ 'Tuhin', 'shohag', 'Akib', 'Shofiul', 'Murad', 'Guljar', 'Tito'];
+// 3.brickCalculator
 
-function tinyFriends(friendsName){
-  var smallest = friendsName[5].lenght
-  
-  for (var i = 0; i < friendsName.lenght; i++){
-      var currentnumber = friendsName[i].lenght;
-
-    if (friendsName[i].lenght < smallest){
-      friendsName[i] = smallest;
+function brickCalculator (floor) {
+    if (floor <=10) {
+        var firstTenFloor = floor;
+        return firstTenFloor * 15 * 1000;
     }
-  }
-  return smallest
+   
+    else if ( floor > 10 && floor <= 20 ) {
+     tenToTwentyFloor = floor - 10 ;
+     
+     return ( 10 * 15 * 1000 ) + ( tenToTwentyFloor * 12 * 1000 );
+    }
+
+    else if ( floor > 20) {
+        restFloor = floor - 20;
+        return ( 10 * 15 * 1000 ) + ( 10 * 12 * 1000 ) + ( restFloor * 10 * 1000 );
+    }
+        
+
 }
+var totalBricksNeeded = brickCalculator(30);
+console.log("Total Brick Required-", totalBricksNeeded);
 
-var result = smallest;
-console.log(result)
 
+//4.tinyFriend
+
+function tinyFriend(friends) {
+    var smallest = friends[0];
+    for (var i = 0; i < friends.length; i++) {
+        var currentLenght = friends[i].length;  
+        
+        if(currentLenght < smallest.length) {
+            smallest = friends[i];
+        }
+    }
+    return smallest;
+}
+var result = tinyFriend(['Tuhin', 'shohag', 'Akib', 'Shofiul', 'Murad', 'Guljar' ,'Tito' ]);
+console.log("My Tiny Friend is", result);
